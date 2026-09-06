@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    
+    agent {
+    label 'jenkins-agent'
+   }
 
     environment {
         IMAGE = 'localhost:5000/my-app'
