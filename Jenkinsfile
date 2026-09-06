@@ -41,7 +41,16 @@ pipeline {
             }
         }
     }
-    
+
+    post {
+        success {
+            build job: 'my-app-deploy',
+                  parameters: [
+                      string(
+                          name: 'IMAGE_TAG',
+                          value: "${BUILD_NUMBER}"
+                      )
+                  ]
+        }
+    }
 }
-
-
